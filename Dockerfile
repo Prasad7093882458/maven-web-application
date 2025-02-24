@@ -1,2 +1,4 @@
-FROM tomcat:9.0-jdk11
-COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+FROM alphine:linux
+RUN yum add <java-11-jdk>
+RUN wget https://get.jenkins.io/war-stable/2.492.1/jenkins.war
+CMD ["java","-jar","jenkins.war"]
