@@ -1,4 +1,3 @@
-FROM alpine:linux
-RUN yum add <java-11-jdk>
-RUN wget https://get.jenkins.io/war-stable/2.492.1/jenkins.war
-CMD ["java","-jar","jenkins.war"]
+FROM tomcat:9-jdk17
+COPY target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
+EXPOSE 8080
